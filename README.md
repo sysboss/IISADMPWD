@@ -12,12 +12,13 @@ Here are some quick workaround steps to install IISADMPWD on Windows Server 2008
 2. Register the IISpwchg.dll file in the Iisadmpwd directory:
 	* Open an elevated command prompt.
 	* In the Open box, type the following, and then press ENTER:  
-> regsvr32 c:\windows\system32\inetsrv\iisadmpwd\iispwchg.dll
+		```
+		regsvr32 c:\windows\system32\inetsrv\iisadmpwd\iispwchg.dll
+		```
 
 3.  Configure the **PasswordChangeFlags** property in the metabase to make sure that the Password Change functionality is enabled:
 
 	* Open an elevated command prompt.
-
 	* Locate the C:\Inetpub\Adminscripts directory (make sure that you have IIS 6 Scripting Tools feature turned on).
 
   * Type the following command, and then press ENTER:  
@@ -48,5 +49,7 @@ Now you can access the password change page by navigating to http://<server>/iis
 
 ### Sidenote ###
 If you only owns a copy of x86 Server 2003 while the target Server 2008/2012 you are using is x64, then the above steps need a few changes. First, you must copy the folder 'SysWOW64\inetsrv' from this repo to %windir%\SysWOW64\inetsrv on your server. This path will be used in following steps. At last this application must be running in a 32-bit application pool.
+
+***
 
 // Article based on http://blogs.msdn.com/b/asiatech/archive/2009/03/17/how-to-manage-my-windows-user-password-through-iis-web-portal.aspx
